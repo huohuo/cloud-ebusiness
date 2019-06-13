@@ -1,0 +1,75 @@
+server:
+  port: 8080
+
+endpoints:
+  health:
+    sensitive: false
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+
+management:
+  health:
+    defaults:
+      enabled: false
+  security:
+    roles: ACTUATOR
+    health:
+      enabled: false
+
+security:
+  basic:
+    enabled: false
+  user:
+    name: dlsp
+    password: dlsp2019
+    role: ACTUATOR
+
+logging:
+  level:
+    root: DEBUG
+
+spring:
+  application:
+    name: search-service
+  profiles:
+    active: local
+
+datasource:
+  config:
+    url: jdbc:mysql://localhost:3306/ebusiness
+    username: ebusiness
+    password: ebusiness2019
+    initial-size: 1
+    max-wait: 10000
+    max-active: 5
+    max-idle: 5
+    min-idle: 2
+    validation-query: SELECT 1
+    test-on-borrow: true
+    test-on-return: false
+    test-while-idle: true
+    time-between-eviction-runs-millis: 60000
+
+http:
+  connect-timeout: 120000
+  read-timeout: 120000
+  write-timeout: 60000
+
+task-executor:
+  core-pool-size: 20
+  max-pool-size: 20
+  queue-capacity: 100
+
+es:
+  cluster-name: dlsp
+  nodes: 127.0.0.1:9202,127.0.0.1:9302,127.0.0.1:9402
+  bulk-actions: 400
+---
+spring:
+  profiles: beta
+
+---
+spring:
+  profiles: release
