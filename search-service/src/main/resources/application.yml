@@ -18,10 +18,21 @@ spring:
     name: search-service
   profiles:
     active: local
+  cloud:
+    config:
+      fail-fast: false
+      discovery:
+        enabled: true
+        serviceId: config-server
 es:
   cluster-name: dlsp
   nodes: 127.0.0.1:9202,127.0.0.1:9302,127.0.0.1:9402
   bulk-actions: 400
+
+eureka:
+  client:
+    allow-redirects: true
+
 ---
 spring:
   profiles: beta

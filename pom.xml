@@ -10,6 +10,9 @@
 
   <modules>
     <module>search-service</module>
+    <module>config-server</module>
+    <module>eureka-server</module>
+    <module>zuul-server</module>
   </modules>
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -64,6 +67,13 @@
         <groupId>org.mybatis</groupId>
         <artifactId>mybatis-spring</artifactId>
         <version>${mybatis-spring.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Greenwich.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>

@@ -1,4 +1,4 @@
-package com.dlsp.ebusiness;
+package com.dlsp.zuul.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,8 +6,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @EnableEurekaClient
 @SpringBootApplication
-public class SearchApplication {
+public class ZuulServerApplication {
+
 	public static void main(String[] args) {
-		SpringApplication.run(SearchApplication.class, args);
+		SpringApplication.run(ZuulServerApplication.class, args);
 	}
+
 }
